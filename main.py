@@ -15,28 +15,36 @@ def count_integer(numbers, integer):
         return 42
 
 
-print(count_integer(lst, 3))
+count_integer(lst, 1)
 
 # Aufgabe 2
 
 def list_func(numbers, integer):
     reverselist = []
-    if integer in numbers:
-        pass
-    else:
-        return reverselist
-    for i in numbers:
-        if numbers[i] == integer:
-            numbers[i] = 6
+    anzahl = 0
+    bumbers = numbers[:]
+    for i in bumbers:
+        if i == integer:
+            anzahl += 1
         else:
             continue
-    for i in range(len(numbers)):
-        reverse = len(numbers) - 1
+    if anzahl == 0:
+        return reverselist
+    stelle = -1
+    for i in bumbers:
+        stelle += 1
+        if i == integer:
+            bumbers[stelle] = 6
+        else:
+            continue
+    for i in range(len(bumbers)):
+        reverse = len(bumbers) - 1
         reverse -= i
-        reverselist.append(numbers[reverse])
+        reverselist.append(bumbers[reverse])
     print(reverselist)
+    return bumbers
 
-    return numbers
+print(list_func(lst, 3))
 
 
 # Aufgabe 3
@@ -51,7 +59,8 @@ def compare_lists(list1, list2):
             empty_list.append(i)
         else:
             continue
-    return empty_list
+    dupfree_lst = list(set(empty_list))
+    return dupfree_lst
 
 
 print(compare_lists(lst, lst2))
@@ -64,7 +73,7 @@ def remove_duplicates(lst):
     return dupfree_lst
 
 
-print(remove_duplicates(lst2))
+remove_duplicates(lst2)
 
 # Aufgabe 5
 
@@ -72,12 +81,23 @@ print(remove_duplicates(lst2))
 my_dict = {"Type": "Notebook", "Brand": "Dell", "Price": 2000}
 
 def dict_func(dictionary):
-    print("You have a", dictionary["Type"], "from",  dictionary["Brand"], "that costs:", dictionary["Price"])
+    if "Type" not in dictionary:
+        type = "unknown type"
+    else:
+        type = dictionary["Type"]
+    if "Brand" not in dictionary:
+        brand = "unknown brand"
+    else:
+        brand = dictionary["Brand"]
+    if "Price" not in dictionary:
+        price = "unknown price"
+    else:
+        price = dictionary["Price"]
+    print("You have a", type, "from",  brand, "that costs:", price)
     dictionary["OS"] = "Linux"
     print(dictionary)
-    dictionary.get("Type", "unknown type")
-    dictionary.get("Brand", "unknown brand")
-    dictionary.get("Price", "unknown price")
     return dictionary
 
 print(dict_func(my_dict))
+
+
