@@ -65,6 +65,7 @@ class SinglyLinkedList:
         return False
 
     def delete(self, data):
+        global previous
         current = self.head
         if self.size < 2:
             if current.data == data:
@@ -118,7 +119,7 @@ class DoublyLinkedList:
 
     def append(self, data, front):
         node = NodeDLL(data)
-        if self.tail == None:
+        if  self.tail is None:
             self.tail = node
             self.head = node
             self.size = 1
