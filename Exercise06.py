@@ -1,16 +1,5 @@
-# am ende jeder zeile gibt es eine line termination (\n)
-# wenn wir write benutzen überschreibt, lieber append verwenden
-# write wird hauptsächlich für neue Dateien
-# befehl rsplit ist eine Funktion, die für uns eine Zeile aufsplitet. () sortiert nach Leerzeichen; (,) nach Beistrichen; etc.
 
-"""
-f = open('Text', 'r')
-
-with open('Text', 'r') as reader:
-    contents = reader.readlines()
-"""
-
-
+#1
 def transform_to_row(infile, outfile):
     with open(infile, "r") as reader:
         with open(outfile, "w") as writer:
@@ -20,12 +9,11 @@ def transform_to_row(infile, outfile):
                 words = line.rsplit(",")
             for i in words:
                 writer.write(i + "\n")
-    return
 
 
-#transform_to_row("Text", "Toga")
+transform_to_row("Text", "Toga")
 
-
+#2
 def add_greeting(infile, outfile):
     with open(infile, "r") as reader:
         with open(outfile, "w") as writer:
@@ -36,7 +24,7 @@ def add_greeting(infile, outfile):
 
 #add_greeting("Toga", "Caramba")
 
-
+#3
 def strip_greeting(infile, outfile):
     with open(infile, "r") as reader:
         with open(outfile, "w") as writer:
@@ -48,7 +36,7 @@ def strip_greeting(infile, outfile):
 
 #strip_greeting("Caramba", "Without_Hello.txt")
 
-
+#4
 def combine_files(file1, file2, outfile):
     with open(file1, "r") as reader1:
         with open(file2, "r") as reader2:
@@ -61,4 +49,4 @@ def combine_files(file1, file2, outfile):
                     writer.write(line1[:-1] + " " + line2)
 
 
-combine_files("Toga", "Caramba", "Vor-Und-Nachname")
+#combine_files("Toga", "Caramba", "Vor-Und-Nachname")

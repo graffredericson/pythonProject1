@@ -94,3 +94,9 @@ def binary_search(numbers, num, start=0, end=0):
             return binary_search(numbers, num, mid+1, end)
     else:
         return -1
+
+    # am ende jeder zeile gibt es eine line termination (\n)
+    # wenn wir write benutzen überschreibt, lieber append verwenden
+    # write wird hauptsächlich für neue Dateien
+    # befehl rsplit ist eine Funktion, die für uns eine Zeile aufsplitet. () sortiert nach Leerzeichen; (,) nach Beistrichen; etc.
+
