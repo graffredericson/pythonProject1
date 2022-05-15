@@ -70,3 +70,27 @@ def default_param(text = "hello"):
     print(text)
 
 default_param()
+
+
+def power(a, b):
+    if a < 0 and b < 0:
+        return -1
+    elif a == 0:
+        return 0
+    elif b == 0:
+        return 1
+    else:
+        return a * power(a, b - 1)
+
+
+def binary_search(numbers, num, start=0, end=0):
+    if end >= start:
+        mid = (end+start) // 2
+        if numbers[mid] == num:
+            return mid
+        elif numbers[mid] > num:
+            return binary_search(numbers, num, start, mid-1)
+        else:
+            return binary_search(numbers, num, mid+1, end)
+    else:
+        return -1

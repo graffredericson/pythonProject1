@@ -7,6 +7,16 @@ def power(a, b):
     else:
         return -1
 
+def power(a, b):
+    if a < 0 and b < 0:
+        return -1
+    elif a == 0:
+        return 0
+    elif b == 0:
+        return 1
+    else:
+        return a * power(a, b - 1)
+
 #print(2**2)
 print(power(8, 2))
 
@@ -28,6 +38,19 @@ def binary_search(numbers, num):
 
 mylist = [1, 2, 3, 5, 6, 7, 8, 9, 10]
 print(binary_search(mylist, 3))
+
+
+def binary_search(numbers, num, start=0, end=0):
+    if end >= start:
+        mid = (end + start) // 2
+        if numbers[mid] == num:
+            return mid
+        elif numbers[mid] > num:
+            return binary_search(numbers, num, start, mid - 1)
+        else:
+            return binary_search(numbers, num, mid + 1, end)
+    else:
+        return -1
 
 #3
 class HashTable():
