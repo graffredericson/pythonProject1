@@ -11,7 +11,7 @@ def transform_to_row(infile, outfile):
                 writer.write(i + "\n")
 
 
-transform_to_row("Text", "Toga")
+#transform_to_row("Text", "Toga")
 
 #2
 def add_greeting(infile, outfile):
@@ -44,9 +44,11 @@ def combine_files(file1, file2, outfile):
                 contents1 = reader1.readlines()
                 contents2 = reader2.readlines()
 
-                print(contents1, contents2)
-                for line1, line2 in zip(contents1, contents2):
-                    writer.write(line1[:-1] + " " + line2)
+                if len(contents1) != len(contents2):
+                    raise Exception("error, error, error")
+                else:
+                    for line1, line2 in zip(contents1, contents2):
+                        writer.write(line1[:-1] + " " + line2)
 
 
-#combine_files("Toga", "Caramba", "Vor-Und-Nachname")
+#combine_files("Caramba", "Toga", "Vor-Und-Nachname")
