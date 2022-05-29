@@ -7,11 +7,12 @@ def transform_to_row(infile, outfile):
             print(contents)
             for line in contents:
                 words = line.rsplit(",")
+                print(words)
             for i in words:
                 writer.write(i + "\n")
 
 
-#transform_to_row("Text", "Toga")
+transform_to_row("Text", "Toga")
 
 #2
 def add_greeting(infile, outfile):
@@ -51,4 +52,4 @@ def combine_files(file1, file2, outfile):
                         writer.write(line1[:-1] + " " + line2)
 
 
-#combine_files("Caramba", "Toga", "Vor-Und-Nachname")
+combine_files("Caramba", "Toga", "Vor-Und-Nachname")

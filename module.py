@@ -100,3 +100,50 @@ def binary_search(numbers, num, start=0, end=0):
     # write wird hauptsächlich für neue Dateien
     # befehl rsplit ist eine Funktion, die für uns eine Zeile aufsplitet. () sortiert nach Leerzeichen; (,) nach Beistrichen; etc.
 
+
+
+class Random(_random.Random):
+    """Random number generator base class used by bound module functions.
+    Used to instantiate instances of Random to get generators that don't
+    share state.
+    Class Random can also be subclassed if you want to use a different basic
+    generator of your own devising: in that case, override the following
+    methods:  random(), seed(), getstate(), and setstate().
+    Optionally, implement a getrandbits() method so that randrange()
+    can cover arbitrarily large ranges.
+    """
+
+    VERSION = 3  # used by getstate/setstate
+
+    def __init__(self, x=None):
+        """Initialize an instance.
+        Optional argument x controls seeding, as for Random.seed().
+        """
+
+        self.seed(x)
+        self.gauss_next = None
+
+
+def shuffle(self, x, random=None):
+    """Shuffle list x in place, and return None.
+    Optional argument random is a 0-argument function returning a
+    random float in [0.0, 1.0); if it is the default None, the
+    standard random.random will be used.
+    """
+
+    if random is None:
+        randbelow = self._randbelow
+        for i in reversed(range(1, len(x))):
+            # pick an element in x[:i+1] with which to exchange x[i]
+            j = randbelow(i + 1)
+            x[i], x[j] = x[j], x[i]
+    else:
+        _warn('The *random* parameter to shuffle() has been deprecated\n'
+              'since Python 3.9 and will be removed in a subsequent '
+              'version.',
+              DeprecationWarning, 2)
+        floor = _floor
+        for i in reversed(range(1, len(x))):
+            # pick an element in x[:i+1] with which to exchange x[i]
+            j = floor(random() * (i + 1))
+            x[i], x[j] = x[j], x[i]
