@@ -82,12 +82,12 @@ class SynAnt:
             self.word_dicts.append({'word': word, 'synonyms': set(synonyms), 'antonyms': set(antonyms)})
 
     def find_synonyms(self):
-        print('Getting Synonyms...')
+        print("These are the Synonyms:")
         for word_dict in self.word_dicts:
             print("Word: {} | Synonyms: {}".format(word_dict['word'], word_dict['synonyms']))
 
     def find_antonyms(self):
-        print('Getting Antonyms...')
+        print("These are the Synonyms:")
         for word_dict in self.word_dicts:
             print("Word: {} | Antonyms: {}".format(word_dict['word'], word_dict['antonyms']))
 
